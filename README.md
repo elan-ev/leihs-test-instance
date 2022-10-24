@@ -1,6 +1,23 @@
-# **leihs** hosting template
+# **leihs** test setup
 
-This is a template to set up a [**leihs**](https://github.com/leihs/leihs/wiki) server,
-providing a web-based equipment booking and inventory management system.
+To deploy [leihs-test.vm2.elan.codes](https://leihs-test.vm2.elan.codes):
 
-## [Read the Guide](./GUIDE.md)
+0. Initialize git submodules:
+
+        ❯ git submodule update --init leihs && cd leihs && git submodule update --init --recursive
+
+1. Create a Debian 11 LXC container with *at least 8GB RAM*
+
+2. Make sure you can SSH into leihs-test.vm2.elan.codes without password
+
+3. To generate TLS certificates, run:
+
+        ❯ ansible-playbook -i hosts prep.yml
+
+4. Start deploying Leihs by running:
+
+        ./scripts/deploy
+
+5. Get yourself a coffee ☕️
+
+6. Register admin account on [leihs-test.vm2.elan.codes](https://leihs-test.vm2.elan.codes)

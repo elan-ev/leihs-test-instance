@@ -1,0 +1,6 @@
+leihs_external_hostname: leihs-test.vm2.elan.codes
+ansible_host: leihs-test.vm2.elan.codes
+leihs_send_mails: false
+db_backup_keep_days: 4
+db_backup_nigthly_enabled: false
+db_backup_on_deploy: false

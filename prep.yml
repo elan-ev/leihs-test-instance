@@ -1,0 +1,21 @@
+---
+
+- hosts: leihs_server
+
+  tasks:
+    - name: install certbot
+      package:
+        state: present
+        name: certbot
+
+    - name: run initial certbot request
+      ansible.builtin.command:
+        cmd: >
+          certbot certonly
+          --standalone
+          --agree-tos
+          -n
+          --preferred-challenges http
+          --email none@elan-ev.de
+          -d {{ leihs_external_hostname }}
+        creates: /etc/letsencrypt/live/{{ leihs_external_hostname }}/fullchain.pem
